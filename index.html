@@ -91,6 +91,22 @@ h1{font-size:30px}.badge{font-size:13px;padding:6px 9px}button{font-size:15px;pa
 <canvas id="game"></canvas>
 
 <script>
+  let playerHitFlash = 0;
+  enemies.forEach(e=>{
+  moveToward(e);
+  if(Math.hypot(player.x-e.x,player.y-e.y)<42){
+    player.hp -= 0.22;
+    playerHitFlash = 8;
+  }
+});
+
+bears.forEach(b=>{
+  moveToward(b);
+  if(Math.hypot(player.x-b.x,player.y-b.y)<56){
+    player.hp -= 0.34;
+    playerHitFlash = 8;
+  }
+});
   function closeCharShop(){
   document.getElementById("charShop").style.display = "none";
 }
