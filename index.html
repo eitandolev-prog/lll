@@ -107,25 +107,7 @@ const characters=[
 {level:18,emoji:"🐉",name:"Dragon Master"},
 {level:22,emoji:"🌟",name:"Star Champion"}
 ];
-  let inputName = document.getElementById("nameInput").value.trim() || "Player";
-
-// שמירת השם
-player.name = inputName;
-
-// ברירת מחדל – לא אדמין
-player.rank = "Player";
-
-// רק אם זה השם שלך בדיוק
-if(inputName === "Eitan1114"){
-    player.rank = "ADMIN";
-
-    // בונוסים אדמין
-    player.money = 999999;
-    player.speedBonus = 3;
-    player.hpBonus = 999;
-    player.attackBonus = 20;
-    player.char = "🦸‍♂️";
-}
+ 
 let gameActive=false, keys={}, animationId=0;
 let level=Number(localStorage.getItem("level")||1);
 let bestTime=localStorage.getItem("bestTime")||null;
@@ -184,6 +166,28 @@ div.appendChild(btn);box.appendChild(div);
 }
 function resetSave(){if(confirm("Reset all save data?")){localStorage.clear();location.reload();}}
 function startGame(){
+  function startGame(){
+
+  let inputName = document.getElementById("nameInput").value.trim() || "Player";
+
+  player.name = inputName;
+
+  // ברירת מחדל
+  player.rank = "Player";
+
+  // אדמין
+  if(inputName === "Eitan1114"){
+    player.rank = "ADMIN";
+
+    player.money = 999999;
+    player.speedBonus = 3;
+    player.hpBonus = 999;
+    player.attackBonus = 20;
+    player.char = "🦸‍♂️";
+  }
+
+  // המשך המשחק...
+}
 if(!player.name){player.name=document.getElementById("nameInput").value.trim()||"Player";localStorage.setItem("playerName",player.name);}
 if(player.name==="Eitan1114"){
 player.money=999999;player.speedBonus=3;player.hpBonus=999;player.attackBonus=20;player.char="🦸‍♂️";player.rank="ADMIN";
