@@ -90,6 +90,9 @@ h1{font-size:30px}.badge{font-size:13px;padding:6px 9px}button{font-size:15px;pa
 <canvas id="game"></canvas>
 
 <script>
+  function closeCharShop(){
+    document.getElementById("charShop").style.display = "none";
+}
 const canvas=document.getElementById("game");
 const ctx=canvas.getContext("2d");
 const characters=[
